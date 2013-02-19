@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Fun With mixin! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.ready(function(){
+		function Man(){ this.x = 10; }
+		function Myth(){ this.y = 20; }
+		function Legend(){ this.z = 30; }
+		
+		var theMan = new Man;
+		var theMyth = new Myth;
+		var theLegend = new Legend;
+		
+		function ManMythLegend(){}
+		
+		var mixinManMythLegend = new ManMythLegend;
+		dojo.mixin(mixinManMythLegend, theMan, theMyth, theLegend);
+		console.log(mixinManMythLegend);
+		
+		dojo.extend(ManMythLegend, theMan, theMyth, theLegend);
+		var extendManMythLegend = new ManMythLegend;
+		console.log(extendManMythLegend);
+	});
+</script>
+</head>
+<body>
+</body>
+</html>

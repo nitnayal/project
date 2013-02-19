@@ -1,0 +1,31 @@
+<html>
+<head>
+<title>Hitch! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dtdg", "./dtdg");
+	
+	var foo = {
+		name : "Nitin",
+		greet : function(){console.log("Hi I m",this.name)}
+	};
+	
+	var bar = {
+		name : "Bar",
+		greet : function(){console.log("Hi I m",this.name)}
+	};
+	
+	
+	dojo.ready(function(){
+		foo.greet();
+		bar.greet();
+		
+		// Bind bar's greet method to another context
+		bar.greet = dojo.hitch(foo, "greet");	
+		bar.greet();
+	});
+</script>
+</head>
+<body>
+</body>
+</html>

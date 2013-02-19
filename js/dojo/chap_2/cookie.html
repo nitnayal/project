@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Cookie! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	require(["../dojo/cookie"]);
+	dojo.cookie("foo","bar", {expires : 30});
+	dojo.ready(function(){
+		alert(dojo.cookie("foo"));
+	});
+</script>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

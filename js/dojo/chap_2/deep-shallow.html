@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Deep n shallow copy! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dtdg", "./dtdg");
+	dojo.ready(function(){
+		function foo(){this.bar = "baz";}
+		
+		var foo1 = new foo;
+		var foo2 = foo1; // shallow copy
+		console.log(foo1.bar);
+		console.log(foo2.bar);
+		
+		foo2.bar = "oui",
+		console.log(foo1.bar);
+		console.log(foo2.bar);
+		
+		foo3 = dojo.clone(foo2);
+		foo2.bar = "merci";
+		foo3.bar = "Lika";
+		console.log(foo2.bar);
+		console.log(foo3.bar);
+	});
+</script>
+</head>
+<body>
+</body>
+</html>

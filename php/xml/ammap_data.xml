@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map map_file="maps/usa.swf" zoom="100%" zoom_x="0%" zoom_y="0%">
+  <areas>
+    <area mc_name="US_AL" title="01-Alabama"></area>
+    <area mc_name="US_AK" title="02-Alaska"></area>
+    <area mc_name="US_AZ" title="03-Arizona"></area>
+    <area mc_name="US_AR" title="04-Arkansas"></area>
+    <area mc_name="US_CA" title="05-California"></area>
+    <area mc_name="US_CO" title="06-Colorado"></area>
+    <area mc_name="US_CT" title="07-Connecticut"></area>
+    <area mc_name="US_DE" title="08-Delaware"></area>
+    <area mc_name="US_DC" title="09-District of Columbia"></area>
+    <area mc_name="US_FL" title="10-Florida"></area>
+    <area mc_name="US_GA" title="11-Georgia"></area>
+    <area mc_name="US_HI" title="12-Hawaii"></area>
+    <area mc_name="US_ID" title="13-Idaho"></area>
+    <area mc_name="US_IL" title="14-Illinois"></area>
+    <area mc_name="US_IN" title="15-Indiana"></area>
+    <area mc_name="US_IA" title="16-Iowa"></area>
+    <area mc_name="US_KS" title="17-Kansas"></area>
+    <area mc_name="US_KY" title="18-Kentucky"></area>
+    <area mc_name="US_LA" title="19-Louisiana"></area>
+    <area mc_name="US_ME" title="20-Maine"></area>
+    <area mc_name="US_MD" title="21-Maryland"></area>
+    <area mc_name="US_MA" title="22-Massachusetts"></area>
+    <area mc_name="US_MI" title="23-Michigan"></area>
+    <area mc_name="US_MN" title="24-Minnesota"></area>
+    <area mc_name="US_MS" title="25-Mississippi"></area>
+    <area mc_name="US_MO" title="26-Missouri"></area>
+    <area mc_name="US_MT" title="27-Montana"></area>
+    <area mc_name="US_NE" title="28-Nebraska"></area>
+    <area mc_name="US_NV" title="29-Nevada"></area>
+    <area mc_name="US_NH" title="30-New Hampshire"></area>
+    <area mc_name="US_NJ" title="31-New Jersey"></area>
+    <area mc_name="US_NM" title="32-New Mexico"></area>
+    <area mc_name="US_NY" title="33-New York"></area>
+    <area mc_name="US_NC" title="34-North Carolina"></area>
+    <area mc_name="US_ND" title="35-North Dakota"></area>
+    <area mc_name="US_OH" title="36-Ohio"></area>
+    <area mc_name="US_OK" title="37-Oklahoma"></area>
+    <area mc_name="US_OR" title="38-Oregon"></area>
+    <area mc_name="US_PA" title="39-Pennsylvania"></area>
+    <area mc_name="US_RI" title="40-Rhode Island"></area>
+    <area mc_name="US_SC" title="41-South Carolina"></area>
+    <area mc_name="US_SD" title="42-South Dakota"></area>
+    <area mc_name="US_TN" title="43-Tennessee"></area>
+    <area mc_name="US_TX" title="44-Texas"></area>
+    <area mc_name="US_UT" title="45-Utah"></area>
+    <area mc_name="US_VT" title="46-Vermont"></area>
+    <area mc_name="US_VA" title="47-Virginia"></area>
+    <area mc_name="US_WA" title="48-Washington"></area>
+    <area mc_name="US_WV" title="49-West Virginia"></area>
+    <area mc_name="US_WI" title="50-Wisconsin"></area>
+    <area mc_name="US_WY" title="51-Wyoming"></area>
+  </areas>
+  
+  <movies>
+    <movie title="Washington DC. Click to zoom" file="target" color="#CC0000" width="30" height="30" long="134.0162" lat="30.6416" zoom="397.619%" zoom_x="-302.96%" zoom_y="-99.04%" fixed_size="true"></movie>
+  </movies>
+   
+  <labels>
+    <label x="49.8193%" y="5.0392%" text_size="18" color="#FFFFFF" remain="false">
+      <text>UNITED STATES OF AMERICA</text>
+    </label>
+  </labels>
+</map>

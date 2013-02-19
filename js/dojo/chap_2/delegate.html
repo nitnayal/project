@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Delegate! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dtdg", "./dtdg");
+	function Foo(){
+		this.talk = function(){console.log("Hello, my name is", this.name);}
+	}
+	/*
+	* dojo.delegate(Object, properties) //Returns Object
+	* 
+	* Get a Function object back that has the name property
+	* but dispatches, or delegates, responsiblity for the talk function
+	* to the instance of Foo that is passed in.
+	*/
+	var bar = dojo.delegate(new Foo, {name : "Bar"});
+	
+	dojo.ready(function(){
+		bar.talk();
+	});
+</script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<head>
+<title>Partial! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dtdg", "./dtdg");
+	
+	function addThree(x,y,z){console.log(x+y+z);}
+	dojo.ready(function(){
+		f = dojo.partial(addThree,100,10);
+		f = dojo.partial(f,50);
+		f();
+	});
+</script>
+</head>
+<body>
+</body>
+</html>

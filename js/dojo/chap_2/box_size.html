@@ -1,0 +1,16 @@
+<html>
+<head>
+<title>Box size! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+	dojo.ready(function(){
+		console.log("box model", dojo.boxModel); // content-box
+		console.log("content box", dojo.contentBox("foo")); // l=0 t=0 w=4 h=4
+		console.log("margin box", dojo.marginBox("foo")); // l=3 t=3 w=6 h=6
+	});
+</script>
+</head>
+<body style="margin:3px">
+	<div id="foo" style="width:4px; height:4px; border:solid 1px;"></div>
+</body>
+</html>
