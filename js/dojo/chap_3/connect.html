@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Cookie! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	function Foo(){this.greet = function(){console.log("Hi, I'm Foo");}}
+	function Bar(){this.greet = function(){console.log("Hi, I'm Bar");}}
+	
+	foo = new Foo;
+	bar = new Bar;
+	
+	//Anytime foo.greet fires, fire bar.greet afterward...
+	var handle = dojo.connect(foo, "greet", bar, "greet");
+	
+	dojo.ready(function(){
+		foo.greet();
+		dojo.disconnect(handle);		// disconnect handle
+		foo.greet();
+		
+		dojo.connect(dojo.byId("foo"), "onmouseover", function(evt){
+			console.log(evt);
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="foo">ola !</div>
+</body>
+</html>

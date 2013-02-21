@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>Back Button! </title>
+<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.1/dojo/resources/dojo.css" />
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dojo", "../dojo");
+		require(["dojo/back"]);
+	dojo.addOnLoad(function(){
+		initialState = {
+			back : function(){console.log("Back to initial state");}
+		};
+		state1 = {
+			back: function(){console.log("Back to state 1");},			
+			forward: function(){console.log("Forward to state 1");},			
+			changeUrl: true
+		};
+		state2 = {
+			back: function(){console.log("Back to state 2");},
+			forward: function(){ console.log("Forward to state 2");},
+			changeUrl : true
+		};
+		
+		// set the initial state and move forward two steps in history
+		dojo.back.setInitialState(initialState);
+		dojo.back.addToHistory(state1);
+		dojo.back.addToHistory(state2);
+	});
+</script>
+</head>
+<body>
+	<script type="text/javascript">
+	//inside body because of IE
+	dojo.back.init();
+	</script>
+	<div>Press the back button and have a look at the console.</div>
+</body>
+</html>
