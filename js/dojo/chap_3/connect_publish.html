@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Connect and Publish! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+/*
+If we are not able to reliably change Foo’s greet method to include a dojo.publish call 
+because an external constraint exists that prohibits it; use connectPublisher
+
+*/
+	function Foo(topic){
+		this.topic = topic;
+		this.greet = function(){
+			console.log("Hi, I m foo");
+			dojo.publish(this.topic);
+		}
+	}
+	
+	function Bar(topic){
+		this.topic = topic;
+		this.greet = function(){
+			console.log("Hi, I m Bar");
+		}
+	}	
+	
+		var foo = new Foo();
+		var bar = new Bar();
+		var topic = "/dtdg/salutation";
+	
+	dojo.ready(function(){
+		dojo.subscribe(topic, bar, "greet");
+		dojo.connectPublisher(topic, foo, "greet");
+		foo.greet();
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

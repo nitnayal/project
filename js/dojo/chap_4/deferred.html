@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Hitch callback! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+
+	var d = new dojo.Deferred(/* Optional cancellation function goes here */);	// create deferred
+	d.addCallback(function(response){
+		console.log("The answer is", response);
+		return response;
+	});
+	
+	d.addCallback(function(response){	// another calback to be fired after above
+		console.log("Yes, indeed. The answer is", response);
+		return response;
+	});
+	
+	d.addErrback(function(response) {
+		console.log("An error occurred", response);
+		return response;
+	});
+	
+	// can add more callback / errback 
+	// after some calculation say deferred is fired
+	d.callback(45);
+
+</script>
+</head>
+<body>
+	<div id="foo">ola 1 !</div>
+</body>
+</html>

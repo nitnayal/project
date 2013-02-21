@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Subscribe and Publish! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+	function Foo(topic){
+		this.topic = topic;
+		this.greet = function(){
+			console.log("Hi, I m foo");
+			dojo.publish(this.topic);
+		}
+	}
+	
+	function Bar(topic){
+		this.topic = topic;
+		this.greet = function(){
+			console.log("Hi, I m Bar");
+		}
+		dojo.subscribe(this.topic, this, "greet");
+	}	
+	
+	dojo.ready(function(){
+		var foo = new Foo("/dtdg/salutaion");
+		var bar = new Bar("/dtdg/salutaion");
+		foo.greet();
+	});
+</script>
+</head>
+<body>
+
+</body>
+</html>

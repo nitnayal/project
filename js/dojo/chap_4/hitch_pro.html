@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Hitch callback! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+	dojo.addOnLoad(function(){
+		this.foo = "bar";
+		var callback = dojo.hitch(this, function(response, ioArgs){	// this refers to addOnload
+			console.log("foo (in context) is", this.foo);
+		});
+		
+		// assigning this callback to xhr
+		dojo.xhr("GET",{
+			url : 'test.php',
+			content: {foo : 'bar'},
+			load: callback,
+			timeount: 5000,
+			error: function(response, ioArgs){
+				console.log("failed xhrGet", response, ioArgs);
+				return response;
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="foo">ola 1 !</div>
+</body>
+</html>

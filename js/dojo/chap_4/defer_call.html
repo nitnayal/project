@@ -1,0 +1,48 @@
+<html>
+<head>
+<title>Deferred callback! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.addOnLoad(function(){
+		var d = dojo.xhr("GET",{
+			url : 'test.php',
+			timeout: 5000,
+			load: function(response, ioArgs){
+				console.log("Load response is:", response);
+				console.log("Executing the callback chain now...");
+				return response;
+			},
+			error: function(response, ioArgs){
+				console.log("Error!", response);
+				console.log("Executing the errback chain now...");
+				return response;
+			}
+		});
+		
+		console.log("xhrGet fired. Waiting on callbacks or errbacks");
+
+		d.addCallback(function(result) { //Add some callbacks
+			console.log("Callback 1 says that the result is ", result);
+			return result;
+		});
+
+		d.addCallback(function (result) {
+			console.log("Callback 2 says that the result is ", result);
+			return result;
+		});
+
+		d.addErrback(function(result) { //Add some errbacks
+			console.log("Errback 1 says that the result is ", result);
+			return result;
+		});
+		d.addErrback(function(result) {
+			console.log("Errback 2 says that the result is ", result);
+			return result;
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="foo">ola 1 !</div>
+</body>
+</html>

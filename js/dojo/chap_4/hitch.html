@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Hitch callback! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+	dojo.addOnLoad(function(){
+		this.foo = "bar";
+		
+		var self = this; // for using this in xhr context, where this refers to asynchronous scope
+		
+		dojo.xhr("GET",{
+			url : 'test.php',
+			content: {foo : 'bar'},
+			load: function(response, ioArgs){
+				console.log(self.foo, response, ioArgs);
+				
+				dojo.byId("foo").innerHTML = response;
+				return response;	// always return response back
+			},
+			timeount: 5000,
+			error: function(response, ioArgs){
+				console.log("failed xhrGet", response, ioArgs);
+				return response;
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="foo">ola 1 !</div>
+</body>
+</html>

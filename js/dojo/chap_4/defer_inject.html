@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Deferred cancel async! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+dojo.addOnLoad(function(){
+		var d = new dojo.Deferred;
+		
+	d.addCallback(function(result) {
+		console.log("Callback 1 says that the result is ", result);
+		return result;
+	});
+	d.addCallback(function (result) {
+		console.log("Callback 2 says that the result is ", result);
+		return result;
+	});
+	
+	d.addErrback(function(result) {
+		console.log("Errback 1 says that the result is ", result);
+		return result;
+	});
+	d.addErrback(function(result) {
+		console.log("Errback 2 says that the result is ", result);
+		return result;
+	});
+	
+	request = dojo.xhr("GET",{
+		url : 'test.php',
+		timeout: 5000,
+		load: function(response, ioArgs){
+			console.log("Load response is:", response);
+			console.log("Executing callback chain now...");
+			
+			d.callback(response, ioArgs);	// inject Deferred's callback
+			return response;
+		},
+		error : function(response, ioArgs) {
+			console.log("Error!", response);
+			console.log("Executing the errback chain now...");
+			
+			d.errback(response, ioArgs); //inject our Deferred's errback chain
+			return response;
+		}
+	});
+});
+</script>
+</head>
+<body>
+	<div id="foo">XHR request in progress. You have about 3 seconds to cancel it.</div>
+	<button onclick="javascript: request.cancel()">Cancel</button>
+</body>
+</html>

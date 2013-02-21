@@ -1,0 +1,60 @@
+<html>
+<head>
+<title>Single loop! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+	dojo.ready(function(){
+		/* won't work, as anonymous functions for all foo's will recive the value 
+		   11 by the time they start executing, or mouseover fires.
+		*/
+		for(var i=1;i<=10; i++){
+			var foo = dojo.byId("foo"+i);
+			var handle = dojo.connect(foo ,"onmouseover", function(evt){
+				console.log(i);
+				dojo.disconnect(handle);
+			});
+		}
+		
+		/* this will work, as the value i is trapped in a closure.
+		   the entire body of loop is an anonymous function, executed inline,
+		   and because the anonymous function provides closure for everything thats is in it,
+		   the value of i is 'trapped' as current_i, which can be resolved when
+		   the event handle executes
+		*/
+		for(var i=1;i<=10;i++){
+			(function(){
+				var foo = dojo.byId("doo"+i);
+				var current_i = i;	// trap in closure
+				var handle = dojo.connect(foo,"onmouseover",function(evt){
+					console.log(current_i);
+					dojo.disconnect(handle);
+				});
+			})();
+		}
+	});
+</script>
+</head>
+<body>
+	<div id="foo1">ola 1 !</div>
+	<div id="foo2">ola 2 !</div>
+	<div id="foo3">ola 3 !</div>
+	<div id="foo4">ola 4 !</div>
+	<div id="foo5">ola 5 !</div>
+	<div id="foo6">ola 6 !</div>
+	<div id="foo7">ola 7 !</div>
+	<div id="foo8">ola 8 !</div>
+	<div id="foo9">ola 9 !</div>
+	<div id="foo10">ola 10 !</div>
+	<br /><br />
+	<div id="doo1">dola 1 !</div>
+	<div id="doo2">dola 2 !</div>
+	<div id="doo3">dola 3 !</div>
+	<div id="doo4">dola 4 !</div>
+	<div id="doo5">dola 5 !</div>
+	<div id="doo6">dola 6 !</div>
+	<div id="doo7">dola 7 !</div>
+	<div id="doo8">dola 8 !</div>
+	<div id="doo9">dola 9 !</div>
+	<div id="doo10">dola 10 !</div>
+</body>
+</html>
