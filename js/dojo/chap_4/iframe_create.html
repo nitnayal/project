@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Iframe create! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dojo", "../dojo");
+	dojo.require("dojo.io.iframe");
+	
+	function customCallback(){
+		console.log("callback!");
+	}
+	
+	create = function(){
+		dojo.io.iframe.create("fooframe","customCallback()","http://http://localhost/mailin_zend_rc1/client/dashboard");
+	}
+	
+</script>
+</head>
+<body>
+<button onclick="javascript:create( );">Create</button>
+</html>

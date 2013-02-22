@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Behaviour</title>
+<link rel="stylesheet" type="text/css" href="http://o.aolcdn.com/dojo/1.1/dojo/resources/dojo.css" />
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dojo", "../dojo");
+	dojo.require("dojo.behavior");
+	dojo.addOnLoad(function(){
+		dojo.behavior.add({
+			".container" : function(node){
+				dojo.style(node,{
+					border : "solid 1px",
+					background : "#eee"
+				});
+			},
+			
+			"#list > li" : {
+				onmouseover : function(evt){dojo.style(evt.target, "background", "yellow");},
+				onmouseout : function(evt){dojo.style(evt.target, "background", "");},
+				onclick : "/dtdg/behavior/example/click",
+				found : function(node){dojo.style(node, "cursor", "pointer")}
+			}
+		});
+		
+		dojo.subscribe("/dtdg/behavior/example/click", function(evt){
+			console.log(evt.target.innerHTML, "was clicked");
+		});
+	});
+</script>
+</head>
+<body>
+<div class="container" style="width:300px">
+Grocery List:
+	<ul id="list">
+		<li>Bananas</li>
+		<li>Milk</li>
+		<li>Eggs</li>
+		<li>Orange Juice</li>
+		<li>Frozen Pizzas</li>
+	</ul>
+</div>
+</body>
+</html>

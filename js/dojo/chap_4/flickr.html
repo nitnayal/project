@@ -1,0 +1,29 @@
+<html>
+<head>
+<title>Flickr! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dojo", "../dojo");
+	dojo.require("dojo.io.script");
+	dojo.addOnLoad(function(){
+		dojo.io.script.get({
+			callbackParamName : "jsoncallback",
+			url : "http://www.flickr.com/services/feeds/photos_public.gne",
+			content : {format:"json"},
+			load : function(response, ioArgs){
+				console.log(response);
+				return response;
+			},
+			error: function(response, ioArgs){
+				console.log("error");
+				console.log(response);
+				return response;
+			}
+		});
+	});
+</script>
+</head>
+<body>
+	<div>asda</div>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<head>
+<title>Iframe create! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dojo", "../dojo");
+	dojo.require("dojo.rpc.JsonService");
+	
+	dojo.addOnLoad(function(){
+		var o ={
+			"serviceType" : "JSON-RPC",
+			"serviceURL" : "test.php",
+			"methods" : [
+				{
+					"name" : "sum",
+					"parameters" : [{name : "list"}]
+				},
+				{
+					"name" : "sumofSquares",
+					"parameters" : [{name : "list"}]					
+				}
+			]
+		};
+		
+		var rpcObject = new dojo.rpc.JsonService(o);
+		
+		var sum = rpcObject.sum([4,8,15,16,23,42]);
+		sum.addCallback(function(response){
+			console.log("the answer is ", response);
+		});
+	});
+</script>
+</head>
+<body>
+</html>

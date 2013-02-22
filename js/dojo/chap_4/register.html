@@ -1,0 +1,25 @@
+<html>
+<head>
+<title>Form calls! </title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.addOnLoad(function(){
+		console.log(dojo.formToObject("register"));
+		console.log(dojo.formToQuery("register"));
+		console.log(dojo.formToJson("register"));
+	});
+</script>
+</head>
+<body>
+	<form id="register">
+		<input type="text" name="first" value="Foo">
+		<input type="button" name="middle" value="Baz" disabled>
+		<input type="text" name="last" value="Bar">
+		<select type="select" multiple name="favorites" size="5">
+			<option value="red">red</option>
+			<option value="green" selected>green</option>
+			<option value="blue" selected>blue</option>
+		</select>
+	</form>
+</body>
+</html>
