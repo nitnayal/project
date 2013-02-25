@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Toggling a node!</title>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.registerModulePath("dojo", "../dojo");
+	dojo.require("dojo.fx");
+	dojo.addOnLoad(function(){
+		var box = dojo.byId("box");
+		var t = new dojo.fx.Toggler({
+			node : box,
+			showDuration : 1000,
+			hideDuration : 1000
+		});
+		
+		var visible = true;
+		dojo.connect(box, "onclick", function(evt){
+			visible?t.hide():t.show();
+			visible = !visible;
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="box" style="width:300; height: 400; background: blue">Fade Out</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<head>
+<title>Fun with Animation!</title>
+<style type="text/css">
+@import "http://o.aolcdn.com/dojo/1.1/dojo/resources/dojo.css";
+.box {width : 200px;height : 200px;margin : 5px;background : blue;text-align : center;}
+</style>
+
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">
+	dojo.addOnLoad(function(){
+		var box = dojo.byId("box");
+		dojo.connect(box, "onclick", function(evt){
+			var anim = dojo.fadeOut({node:box});
+			anim.play();
+		});
+	});
+</script>
+</head>
+<body>
+	<div id="box" class="box">Fade Out</div>
+</body>
+</html>

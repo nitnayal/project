@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>Simple Moveable! </title>
+<style type="text/css">
+.moveable {background: #FFFFBF;border: 1px solid black;width: 100px;height: 100px;cursor: pointer;}
+</style>
+<script type="text/javascript" src="../dojo-1.8.3.js"></script>
+<script type="text/javascript">	
+	dojo.registerModulePath("dojo", "../dojo");
+	dojo.require("dojo.dnd.Moveable");
+	dojo.require("dojo.parser");
+</script>
+</head>
+<body>
+	<div dojoType="dojo.dnd.Moveable" skip=true>
+	<div class="noteHandle"></div>
+	<textarea class="note">Type some text here</textarea>
+	</div>
+</body>
+</html>
