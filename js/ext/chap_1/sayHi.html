@@ -1,0 +1,9 @@
+<div>Hello from the <b>world</b> of Ajax!</div>
+<script type='text/javascript'>
+function highlightWindow() {
+	var win = Ext.getCmp('mywindow');	// looks up an Ext JS component by id
+	var winBody = win.body;
+	winBody.highlight();			//fade from yellow to white
+}
+highlightWindow.defer(2000);	// execute highlightWindow after 5 sec
+</script>
