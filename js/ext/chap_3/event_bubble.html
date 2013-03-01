@@ -1,0 +1,60 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>Event Bubble</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+<style type="text/css">
+	.myDiv {border: 1px solid #AAAAAA;width: 200px;height: 35px;cursor: pointer;padding: 2px 2px 2px 2px;margin: 2px 2px 2px 2px;}
+</style>
+	<script type="text/javascript" src="../extjs/adapter/ext/ext-base-debug.js"></script>
+	<script type="text/javascript" src="../extjs/ext-all-debug.js"></script>
+	<script type="text/javascript"> Ext.BLANK_IMAGE_URL = '../extjs/resources/images/default/s.gif';</script>
+	<script type="text/javascript">
+Ext.onReady(function(){
+	Ext.get('myDiv').on('contextmenu', function(eventObj, elRef){
+		console.log('myDiv contextmenu Handler, source el ID: ' + elRef.id);
+	});
+	
+	Ext.get('myHref').on('contextmenu', function(eventObj, elRef){
+		eventObj.stopEvent();
+		console.log('myHref contextmenu Handler, source element ID: ' + elRef.id);
+		
+		if(!this.ctxMenu){
+			this.ctxMenu = new Ext.menu.Menu({
+				items : [
+					{ text : "this is"},
+					{ text : "our custom"},
+					{ text : "context menu"}
+				]
+			});
+		}
+		this.ctxMenu.show(elRef);
+	});
+});
+
+/* 
+ //** event bubble
+	Ext.get('myDiv').on('click', function(eventObj, elRef){
+		console.log('myDivClick handler source element ID: ' + elRef.id);
+	});
+	
+//** event bubble stop
+	Ext.get('myHref').on('click', function(eventObj, elRef){
+		eventObj.stopEvent();
+		console.log('myDivClick handler source element ID: ' + elRef.id);
+	});
+
+
+//** >>>>>> context menu >>>>>>
+
+*/	
+	
+	</script>
+
+</head>
+<body>
+	<div id="myDiv">MyDiv Text
+		<a href="#" id="myHref">My Href</a>
+	</div>
+</body>
+</html>

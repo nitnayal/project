@@ -1,0 +1,38 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+	<title>custom event</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+<style type="text/css">
+	.myDiv {border: 1px solid #AAAAAA;width: 200px;height: 35px;cursor: pointer;padding: 2px 2px 2px 2px;margin: 2px 2px 2px 2px;}
+</style>
+	<script type="text/javascript" src="../extjs/adapter/ext/ext-base-debug.js"></script>
+	<script type="text/javascript" src="../extjs/ext-all-debug.js"></script>
+	<script type="text/javascript"> Ext.BLANK_IMAGE_URL = '../extjs/resources/images/default/s.gif';</script>
+	<script type="text/javascript">
+		
+		var sampleEvent = new Ext.util.Observable();
+		sampleEvent.addEvents('sayhello','saygoodbye');
+		var sayGoodbyeFn = function(firstName, lastName){
+			console.log('Goodbye ' + firstName + ' ' + lastName + '!');
+		}
+				
+		sampleEvent.on('sayhello', function(){
+			console.log('Hello stranger');
+		});
+		sampleEvent.on('saygoodbye',sayGoodbyeFn());
+
+		Ext.onReady(function(){
+			// fire event
+			sampleEvent.fireEvent('sayhello');
+			sampleEvent.fireEvent('saygoodbye','Nitin','Nayal');
+		});	
+	</script>
+
+</head>
+<body>
+	<div id="myDiv">MyDiv Text
+		<a href="#" id="myHref">ola</a>
+	</div>
+</body>
+</html>

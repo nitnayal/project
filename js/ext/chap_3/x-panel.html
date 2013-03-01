@@ -1,7 +1,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-	<title>Hello World</title>
+	<title>X panel</title>
 	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
 <style type="text/css">
 	.myDiv {border: 1px solid #AAAAAA;width: 200px;height: 35px;cursor: pointer;padding: 2px 2px 2px 2px;margin: 2px 2px 2px 2px;}
@@ -9,10 +9,35 @@
 	<script type="text/javascript" src="../extjs/adapter/ext/ext-base-debug.js"></script>
 	<script type="text/javascript" src="../extjs/ext-all-debug.js"></script>
 	<script type="text/javascript"> Ext.BLANK_IMAGE_URL = '../extjs/resources/images/default/s.gif';</script>
-	<script type="text/javascript" src="common.js"></script>
+	<script type="text/javascript">
+		
+	var panel1 = {
+		//xtype : 'panel',	// creates an instance of Ext.Panel
+		title : 'PlainPanel',
+		html : 'Panel with an xtype specified'
+	};
+	
+	var panel2 = {
+		title : 'Plain Panel 2',
+		html : 'Panel with no xtype specified'
+	};
+		
+	Ext.onReady(function(){
+		new Ext.Window({
+			width : 500,
+			height : 350,
+			title : 'Accordion Window',
+			layout : 'accordion',
+			border : false,
+			layoutConfig : {animate : true},
+			items : [panel1,panel2]
+		}).show();
+	});
+
+</script>
 
 </head>
 <body>
-	<div id='div1' class='myDiv'>Hello world</div>
+	<div>ola</div></div>
 </body>
 </html>
