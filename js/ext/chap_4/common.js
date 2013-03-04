@@ -4,8 +4,6 @@ Ext.onReady(function(){
 
 });
 
-Ext.MessageBox.alert('use a function');
-
 /* 
  
 */	
