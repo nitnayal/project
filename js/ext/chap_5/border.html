@@ -1,0 +1,72 @@
+<html>
+<head>
+	<title>Table</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../extjs/adapter/ext/ext-base-debug.js"></script>
+	<script type="text/javascript" src="../extjs/ext-all-debug.js"></script>
+	<script type="text/javascript"> Ext.BLANK_IMAGE_URL = '../extjs/resources/images/default/s.gif';</script>
+	<script type="text/javascript">
+Ext.onReady(function(){
+	new Ext.Viewport({
+		layout : 'border'	,
+		defaults : {
+			frame : true,
+			split : true		// split regions, allowing for resize
+		},
+		items : [
+			{
+				title : 'North Panel',
+				region : 'north',
+				height : 100,
+				minHeight : 100,
+				maxHeight : 100,
+				collapsible : true
+			},
+			{
+				title : 'South Panel',
+				region : 'south',
+				height : 75,
+				split : false,
+				margins : {top : 5}
+			},
+			{
+				title : 'East Panel',
+				region : 'east',
+				width : 100,
+				minWidth : 75,
+				maxWidth : 150,
+				collapsible : true
+			},
+			{
+				title : 'West Panel',
+				region : 'west',
+				collapsible : true,
+				collapseMode : 'mini'		// mini collapse west
+			},
+			{
+				title : 'Center Panel',
+				region : 'center'
+			},
+			{		// replacing child after instantiating, so specify Container as a region, 
+					// where you wish to replace Components
+				xtype : 'container',
+				region : 'center',
+				layout : 'accordion',
+				id : 'centerRegion',
+				autoEl : {}, 
+				items : {
+					title : 'Center Region',
+					id : 'centerPanel',
+					html : 'I am disposable',
+					frame : true
+				}
+			}
+		]
+	});
+});		
+	</script>
+</head>
+<body>
+	<p>Hello world</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<head>
+	<title>Table</title>
+	<link rel="stylesheet" type="text/css" href="../extjs/resources/css/ext-all.css" />
+	<script type="text/javascript" src="../extjs/adapter/ext/ext-base-debug.js"></script>
+	<script type="text/javascript" src="../extjs/ext-all-debug.js"></script>
+	<script type="text/javascript"> Ext.BLANK_IMAGE_URL = '../extjs/resources/images/default/s.gif';</script>
+	<script type="text/javascript">
+Ext.onReady(function(){
+	var myWin = new Ext.Window({
+		height : 300,
+		width : 300,
+		border : false,
+		autoScroll : true,
+		title : 'A window with a Table layout',
+		layout : 'table',
+		layoutConfig : {columns : 3},
+		deaults : {height : 100, width : 100},
+		items : [
+			{html : '1', colspan : 3, width : 150},
+			{html : '2', rowspan : 2, height : 100},
+			{html : '3'},
+			{html : '4'},
+			{html : '5'},
+			{html : '6'},
+			{html : '7'},
+			{html : '8'},
+			{html : '9'}
+		]
+	});
+	myWin.show();
+});		
+	</script>
+</head>
+<body>
+	<p>Hello world</p>
+</body>
+</html>
