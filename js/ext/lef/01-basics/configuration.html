@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Configuration: config property</title>
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">	
+
+Ext.define("MyApp.data.Invoice",{
+	config : {
+		client : '',
+		tax : 0.083,
+		subtotal : 0,
+		total : 0
+	},
+	constructor : function(config){
+		var me = this;
+		me.initConfig(config);		// important to apply config features like get, set, apply
+	},
+	/* set method internally calls apply method, so asdoverride it */
+	applySubtotal : function(value){		// dynamically assigning value to Subtotal
+		var me = this;
+		me.setTotal(value + value*me.getTax());
+		return value;
+	}
+});
+	
+Ext.onReady(function(){
+	var invoice = Ext.create("MyApp.data.Invoice",{
+		client : "Tutux Inc",
+		tax : 3,
+		subtotal : 100,
+		total : 108.3
+	});
+	
+	console.log(invoice.getClient());
+	console.log(invoice.getSubtotal());
+	console.log(invoice.setTotal(5));
+	console.log(invoice.getTotal());
+	console.log(invoice.setSubtotal(10));
+	console.log(invoice.getSubtotal());
+});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

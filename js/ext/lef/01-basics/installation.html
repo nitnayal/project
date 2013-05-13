@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>First program</title>
+
+     <!-- Importing the stylesheet for the widgets -->
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <!-- Importing the Ext JS library -->
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+
+    <!--  Importing our application -->
+    <script type="text/javascript">
+Ext.onReady(function(){
+	//alert("We’re ready to go!");
+	Ext.Msg.alert("Alert","We’re ready to go!");
+	 
+	Ext.Msg.confirm("Confirm","Do you like Ext JS?",function(btn){
+		if(btn === "yes"){
+			Ext.Msg.alert("Great!","This is great!");
+		}else{
+			Ext.Msg.alert("Really?","That's too bad.");
+		}
+	});
+});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

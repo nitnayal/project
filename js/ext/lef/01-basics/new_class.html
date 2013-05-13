@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>New class</title>
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">	
+	Ext.define("MyApp.Client",{
+		name : "John",
+		lastName : "Doe",
+		constructor : function(config){
+			// setting passed values to new instance to be created, else default like 'John' will be passed
+			Ext.apply(this,config || {});
+			console.log("I m a new client here");
+		}
+	},function(){
+		console.log('function defined');
+	});
+	
+Ext.onReady(function(){
+	var client = Ext.create("MyApp.Client");
+	Ext.Msg.alert(client.name);
+	
+	var client2 = Ext.create("MyApp.Client",{
+		name : 'Susan',
+		lastName : 'Smith'
+	});
+	Ext.Msg.alert(client2.name+' '+client2.lastName);
+});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

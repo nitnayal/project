@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Configuration: config property</title>
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">	
+
+Ext.define("MyApp.data.Client",{
+	statics : {
+		sequence : 0,
+		nextId : function(){
+			return ++this.sequence;
+		}
+	},
+	constructor : function(){
+		this.id = this.self.nextId();
+		console.log(this.id);
+	}
+});
+	
+Ext.onReady(function(){
+	Ext.create("MyApp.data.Client");
+	Ext.create("MyApp.data.Client");
+	Ext.create("MyApp.data.Client");
+	console.log(MyApp.data.Client.nextId());
+});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

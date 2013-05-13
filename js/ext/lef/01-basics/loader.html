@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Loader</title>
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">	
+
+/*
+	Loading classes at runtime
+*/
+
+Ext.Loader.setConfig({
+	enabled : true,		// load classes when needed
+	paths : {
+		MyApp : "loader",	// MyApp namespace, and folder where classes are located
+		Ext : "../ext-4.1.1/src"
+	}
+});
+
+Ext.Loader.setPath("MyApp.models","loader/models");		// alias used for more paths
+// movie
+Ext.require("MyApp.models.Movie");
+Ext.onReady(function(){			// wait for movie to load
+	var movie = Ext.create("MyApp.models.Movie",{
+		title : "Zombies attack",
+		director : "Johny Doe"
+	});
+	console.log(movie.get("title"));
+});
+
+// song
+Ext.require("MyApp.music.Song",function(){		// a callback can be used to load class once require finishes importing class.
+		var song = Ext.create("MyApp.music.Song",{
+			title : "The next thing",
+			author : "John Doe",
+			duration : 3.55
+		});
+	console.log(song.get("title"));
+});
+
+// bookshelf
+Ext.require("MyApp.library.bookshelf.Bookshelf");
+Ext.onReady(function(){
+	var bookshelf = Ext.create("MyApp.library.bookshelf.Bookshelf");
+	bookshelf.addBook({id : 1,		// created using uses
+		title : "Steve Jobs",
+		author : "Walter Isaacson",
+		pages : 562
+	});
+	console.log(bookshelf.books.getCount());
+});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

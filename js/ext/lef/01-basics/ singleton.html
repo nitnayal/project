@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Singleton</title>
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">	
+
+Ext.define("MyApp.Constants",{
+	singleton : true,
+	BASE_PATH : "/myapp",
+	ATTEMPTS : 5
+});
+	
+Ext.onReady(function(){
+	console.log(MyApp.Constants.ATTEMPTS);		// can be accessed, but no instance can be created
+	//Ext.create("MyApp.Constants");		// throws an error
+});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

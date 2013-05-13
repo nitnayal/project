@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Life Cycle</title>
+
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">
+	Ext.define("MyApp.container.MyContainer",{
+		extend : "Ext.container.Container",		// now we can use layout system and can create children using items or add property
+		border : true,
+		padding : 10,
+		initComponent : function(){		// called automatically during creatio phase
+			var me = this;
+			Ext.each(me.items, function(item){
+				item.style = {'background-color':'#AA3344','border':'1px solid #333'};
+				item.padding = 10;
+				item.height = 100;
+			});
+			me.callParent();		// dont forget to call parent class also giving access to   el   property
+		},
+		onRender : function(){
+			var me = this;
+			me.callParent(arguments);
+			if(me.border){
+				me.el.setStyle("border","4px solid #cc478a");
+			}
+		}
+	});
+
+	Ext.onReady(function(){
+		Ext.create("MyApp.container.MyContainer",{
+			renderTo : Ext.getBody(),
+			items : [{
+				xtype : "component"	,
+				html : "Component one"
+			},{
+				xtype : "component",
+				html : "Component two"
+			}]
+		});
+	});
+	</script>
+
+</head>
+<body>
+</body>
+</html>
