@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Border layout</title>
+
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">
+	Ext.onReady(function(){
+		var win = Ext.create("Ext.window.Window",{
+			title : "My first window",
+			width : 600,
+			height : 400,
+			maximizable : true,
+			layout : "border",
+			defaults : {
+				xtype : "panel",
+				height : 60,
+				border : true
+			},
+			items : [{
+				title : "Menu",
+				html : "The main menu",
+				region : "west",		// applying regions
+				width : 100,
+				collapsible : true,		// allows hiding
+				split : true		// allows panel resizing
+			},{
+				title : "Content",
+				html : "The main content!",
+				region : "center"
+			}]
+		});
+
+		win.show();
+	});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

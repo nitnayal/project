@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Window panel</title>
+
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">
+	Ext.onReady(function(){
+		var win = Ext.create("Ext.window.Window",{
+			title : "My first window",
+			width : 400,
+			height : 200,
+			maximizable : true,	// allows window maximizing
+			defaults : {
+				xtype : "panel",
+				height : 60,
+				collapsible : true
+			},
+			items : [{
+				title : "Menu",
+				html : "The main menu"
+			},{
+				title : "Content",
+				html : "The main content"
+			}]
+		});
+
+		win.show();		// used instead of render
+	});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

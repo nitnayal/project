@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Fit layout</title>
+
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript">
+	Ext.onReady(function(){
+		var win = Ext.create("Ext.window.Window",{
+			title : "My first window",
+			width : 600,
+			height : 400,
+			maximizable : true,
+			layout : "fit",		// can also use object and define properties
+			defaults : {
+				xtype : "panel",
+				height : 60,
+				border : false
+			},
+			items : [{
+				title : "Menu",
+				html : "The main menu"
+			},{
+				title : "Content",
+				html : "The main content"
+			}]
+		});
+
+		win.show();		// used instead of render
+	});
+	</script>
+
+</head>
+<body>
+</body>
+</html>

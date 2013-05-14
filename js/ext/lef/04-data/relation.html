@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Life Cycle</title>
+
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript" src="MyApp/model/Invoice.js"></script>
+    <script type="text/javascript" src="MyApp/model/Item.js"></script>
+
+    <script type="text/javascript">
+
+    // All information is held in a property called data	
+    var invoice = Ext.create("MyApp.model.Invoice",{
+        taxId : '12345',
+        date : '2012-01-25 11:55:21',
+        name : 'Mr. John',
+        address : '123 ST 987 LA. USA'        
+    });
+
+    invoice.getItems().add(     // getItems defined in invoice relation
+        // adding two more objects to collection
+        {quantity:10, description:'development services', unitPrice:65, subtotal: 650},
+        {quantity:20, description:'design services', unitPrice:55, subtotal: 1100}
+    );
+
+    invoice.getItems().each(function(item){
+        console.log(item.get('description'))
+    });
+
+	</script>
+
+</head>
+<body>
+</body>
+</html>

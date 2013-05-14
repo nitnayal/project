@@ -11,16 +11,16 @@
 		extend : "Ext.container.Container",		// now we can use layout system and can create children using items or add property
 		border : true,
 		padding : 10,
-		initComponent : function(){		// called automatically during creatio phase
+		initComponent : function(){		// called automatically during creation phase
 			var me = this;
-			Ext.each(me.items, function(item){
+			Ext.each(me.items, function(item){		// adding style properties to items
 				item.style = {'background-color':'#AA3344','border':'1px solid #333'};
 				item.padding = 10;
 				item.height = 100;
 			});
 			me.callParent();		// dont forget to call parent class also giving access to   el   property
 		},
-		onRender : function(){
+		onRender : function(){		// overriding onRender method of lifecycle
 			var me = this;
 			me.callParent(arguments);
 			if(me.border){
@@ -32,12 +32,16 @@
 	Ext.onReady(function(){
 		Ext.create("MyApp.container.MyContainer",{
 			renderTo : Ext.getBody(),
+			defaults : {
+				width : 960
+			},
 			items : [{
 				xtype : "component"	,
 				html : "Component one"
 			},{
 				xtype : "component",
-				html : "Component two"
+				html : "Component two",
+				width : 700		// overriding default
 			}]
 		});
 	});

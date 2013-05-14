@@ -10,10 +10,47 @@
 	Ext.onReady(function(){
 		var panel = Ext.create("Ext.panel.Panel",{
 			title : "First Panel",
-			width : 400,
-			height : 250,
-			renderTo : Ext.getBody()
+			headerPosition : "bottom",
+			width : 700,
+			height : 400,
+			renderTo : Ext.getBody(),
+			html : "html content",
+			tools : [
+				{type : "help"},
+				{type : "search"},
+				{type : "gear"},
+				{type : "print"}
+			],
+
+			// if want panel to aollapse
+			collapsible : true,
+			closable : true,
+
+			// placing docked items
+			dockedItems : [{
+				xtype : "toolbar",
+				dock : "top",
+				items : ["Top toolbar"]
+			},
+			{
+				xtype : "toolbar",
+				dock : "bottom",
+				items : ["Bottom Toolbar"]
+			},
+			{
+				xtype : "toolbar",
+				dock : "left",
+				items : ["Left<br /> Toolbar"]
+			},
+			{
+				xtype : "toolbar",
+				dock : "right",
+				items : ["Right<br /> Toolbar"]
+			}
+			]
 		});
+
+		panel.center();
 	});
 	</script>
 

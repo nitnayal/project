@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Life Cycle</title>
+
+    <link rel="stylesheet" type="text/css" href="../ext-4.1.1/resources/css/ext-all.css">
+    <script type="text/javascript" src="../ext-4.1.1/ext-all.js"></script>
+    <script type="text/javascript" src="MyApp/model/Invoice.js"></script>
+
+    <script type="text/javascript">
+
+    // All information is held in a property called data	
+    var invoice = Ext.create("MyApp.model.Invoice",{
+        taxId : '12345',
+        dateIssued : '2012-01-25 11:55:21',
+        name : 'Mr. Doe',
+        address : '123 ST 987 LA. USA'        
+    });
+    console.log(invoice);
+
+    var name = invoice.get('name');
+    invoice.set('name','Mr. Smith');
+
+    console.log('Old name:',name);
+    console.log('New name:',invoice.get('name'));
+
+    invoice.set({
+        taxId : 54321,
+        address : '10th ST, McAllen TX'
+    });
+
+    // to access all data in our model
+    console.log(invoice.data.address) ;     // reading
+
+    invoice.data.address = "Main Avenue 123, Manassas VA";
+    console.log(invoice.get('address'));
+
+	</script>
+
+</head>
+<body>
+</body>
+</html>
